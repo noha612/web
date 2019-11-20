@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
         <link rel="stylesheet" href="css/loginstyle.css">
+        <link rel="stylesheet" href="css/basestyle.css">
     </head>
     <body>
         <div id="all">
@@ -14,24 +15,23 @@
                 <div id="headerEmp2">
                     <br>
                     <br>
-                    <br>
-                    <form action="LoginServlet" method="POST" style="margin-left: 50%; margin-top: 5%">
-                        <label>Username</label>
-                        <input id="username" type="text" name="username" style="margin-left: 28px">
+                    <form action="LoginServlet" method="POST" style="margin-left:37%; margin-top: 5px;">
+                        <label>Tài khoản</label>
+                        <input id="username" type="text" name="username" style="margin-left: 22px">
                         <br>
                         <br>
-                        <label>Password</label>
-                        <input id="password" type="password" name="password" style="margin-left:31px">
+                        <label>Mật khẩu</label>
+                        <input id="password" type="password" name="password" style="margin-left:25px">
                         <br>
                         <br>
-                        <input type="submit" value="Login" style="margin-left: 55%" onclick="return checkSQL();"/>
+                        <input class="button" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
                         <br>
-                        <br>
+                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="">Đăng ký ngay</a></span>
                     </form>
                 </div>
             </div>
             <div id="body">
-                <div id="beforeContent">
+                <div id="beforeContent" class="content1">
                     <h4 class="titleCourse">Khóa học Lập trình C/C++ cho người mới bắt đầu</h4>
                     <div>
                         <div class="box">
@@ -39,13 +39,13 @@
                                 <img src="https://aptechvietnam.com.vn/c/assets/img/Layer_15.png">
                             </div>
                             <div>
-                                <h6 class="text">Khoá học C/C++ PTIT</h6>
+                                <h6 class="text">Khoá học ngôn ngữ C</h6>
                                 <p class="text-justify">Được thiết kế bởi các Chuyên gia đến từ PTIT và được rất nhiều trường đại học sử dụng. Nội dung chương trình được tối ưu, lược bỏ những kiến thức không cần thiết, chỉ tập trung những kiến thức quan trọng để giúp người mới học Lập trình nắm bắt nhanh chóng nền tảng Lập trình.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="content">
+                <div id="content" class="content1">
                     <h4 class="titleCourse">Khóa học Giải thuật cho người mới bắt đầu</h4>
                     <div>
                         <div class="box">
@@ -55,20 +55,18 @@
                             <div>
                                 <h6 class="text">Khoá học Giải thuật</h6>
                                 <p class="text-justify">
-                                    Khóa học cung cấp kiến thức về cấu trúc dữ liệu và giải thuật về: 
-                                    - Hàm và đệ qui
-                                    - Các giải thuật tìm kiếm: Tuyến tính, nhị phân
-                                    - Các giải thuật sắp xếp: Bubble Sort, selection sort , quick sort...
-                                    - Danh sách liên kết: Đơn, đôi
-                                    - Stack và Queue
-                                    - Tree: Cây nhị phân tìm kiếm
-                                    - Cơ bản về đánh giá giải thuật
+                                    Khóa học cung cấp kiến thức về giải thuật: <br>
+                                    - Hàm và đệ qui<br>
+                                    - Các giải thuật tìm kiếm: Tuyến tính, nhị phân<br>
+                                    - Các giải thuật sắp xếp: Bubble Sort, selection sort , quick sort...<br>
+                                    - Cơ bản về đánh giá giải thuật<br>
+                                    - ...
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="afterContent">
+                <div id="afterContent" class="content1">
                     <h4 class="titleCourse">Khóa học nhập môn về Cấu trúc dữ liệu</h4>
                     <div>
                         <div class="box">
@@ -76,7 +74,7 @@
                                 <img src="https://aptechvietnam.com.vn/c/assets/img/Layer_15.png">
                             </div>
                             <div>
-                                <h6 class="text">Khoá học về cấu trúc dữ liệu</h6>
+                                <h6 class="text">Khoá học Cấu trúc dữ liệu</h6>
                                 <p class="text-justify">Được thiết kế bởi các Chuyên gia đến từ PTIT và được rất nhiều trường đại học sử dụng. Nội dung chương trình được tối ưu, lược bỏ những kiến thức không cần thiết, chỉ tập trung những kiến thức quan trọng để giúp người mới học Lập trình nắm bắt nhanh chóng nền tảng Lập trình.</p>
                             </div>
                         </div>
