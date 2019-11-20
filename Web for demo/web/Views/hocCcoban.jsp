@@ -1,85 +1,76 @@
+<%-- 
+    Document   : hocCcoban
+    Created on : Nov 20, 2019, 7:25:34 PM
+    Author     : ABC
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
-        <link rel="stylesheet" href="css/loginstyle.css">
+        <title>Học C cơ bản</title>
+        <link rel="stylesheet" href="css/hocCcobanstyle.css">
         <link rel="stylesheet" href="css/basestyle.css">
     </head>
     <body>
-        <div id="all" style="height: 700px;">
+        <div id="all">
             <div id="header">
                 <div id="headerEmp1"></div>
                 <div id="headerCenter"></div>
                 <div id="headerEmp2">
                     <br>
                     <br>
-                    <form action="LoginServlet" method="POST" style="margin-left:37%; margin-top: 5px;">
-                        <label>Tài khoản</label>
-                        <input id="username" type="text" name="username" style="margin-left: 22px">
-                        <br>
-                        <br>
-                        <label>Mật khẩu</label>
-                        <input id="password" type="password" name="password" style="margin-left:25px">
-                        <br>
-                        <br>
-                        <input class="button" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
-                        <br>
-                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="">Đăng ký ngay</a></span>
-                    </form>
+                    <!--                    <form action="LoginServlet" method="POST" style="margin-left:37%; margin-top: 5px;">
+                                            <label>Tài khoản</label>
+                                            <input id="username" type="text" name="username" style="margin-left: 22px">
+                                            <br>
+                                            <br>
+                                            <label>Mật khẩu</label>
+                                            <input id="password" type="password" name="password" style="margin-left:25px">
+                                            <br>
+                                            <br>
+                                            <input class="button" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
+                                            <br>
+                                            <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="">Đăng ký ngay</a></span>
+                                        </form>-->
                 </div>
             </div>
-            <div id="body" style="height: 60%;">
-                <div id="beforeContent" class="content1">
-                    <h4 class="titleCourse">Khóa học Lập trình C/C++ cho người mới bắt đầu</h4>
-                    <div>
-                        <div class="box">
-                            <div class="img-container">
-                                <img src="https://aptechvietnam.com.vn/c/assets/img/Layer_15.png">
-                            </div>
-                            <div>
-                                <h6 class="text">Khoá học ngôn ngữ C</h6>
-                                <p class="text-justify">Được thiết kế bởi các Chuyên gia đến từ PTIT và được rất nhiều trường đại học sử dụng. Nội dung chương trình được tối ưu, lược bỏ những kiến thức không cần thiết, chỉ tập trung những kiến thức quan trọng để giúp người mới học Lập trình nắm bắt nhanh chóng nền tảng Lập trình.</p>
-                            </div>
-                        </div>
+            <div id="body"  style="height: 1400px;">
+                <div id="menu">
+                    <div id="menu-name"><h3 style="text-align: center;">Học C cơ bản</h3></div>
+                    <div id="list">
+                        <ul>
+                            <li><a class="active" href="#home">Giới thiệu chung</a></li>
+                            <li><a href="#news">Tổng quan</a></li>
+                            <li><a href="#contact">Cấu trúc</a></li>
+                            <li><a href="#about">Cú pháp</a></li>
+                            <li><a href="#about">Kiểu dữ liệu</a></li>
+                            <li><a href="#about">Biến</a></li>
+                            <li><a href="#about">Hằng số</a></li>
+                            <li><a href="#about">Toán tử</a></li>
+                            <li><a href="#about">Cấu trúc lệnh rẽ nhánh</a></li>
+                            <li><a href="#about">Vòng lặp</a></li>
+                            <li><a href="#about">Hàm</a></li>
+                            <li><a href="#about">Mảng</a></li>
+                            <li><a href="#about">Con trỏ</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div id="content" class="content1">
-                    <h4 class="titleCourse">Khóa học Giải thuật cho người mới bắt đầu</h4>
-                    <div>
-                        <div class="box">
-                            <div class="img-container">
-                                <img src="https://aptechvietnam.com.vn/c/assets/img/Layer_15.png">
-                            </div>
-                            <div>
-                                <h6 class="text">Khoá học Giải thuật</h6>
-                                <p class="text-justify">
-                                    Khóa học cung cấp kiến thức về giải thuật: <br>
-                                    - Hàm và đệ qui<br>
-                                    - Các giải thuật tìm kiếm: Tuyến tính, nhị phân<br>
-                                    - Các giải thuật sắp xếp: Bubble Sort, selection sort , quick sort...<br>
-                                    - Cơ bản về đánh giá giải thuật<br>
-                                    - ...
-                                </p>
-                            </div>
-                        </div>
+                <div id="content">
+                    <div class="back-next">
+                        <button class="button-back-next">Bài trước</button>
+                        <button class="button-back-next" style="float: right">Bài tiếp theo</button>
+                    </div>
+                    <div id="main-content"></div>
+                    <div id="code-editor"></div>
+                    <div class="back-next">
+                        <button class="button-back-next">Bài trước</button>
+                        <button class="button-back-next" style="float: right">Bài tiếp theo</button>
                     </div>
                 </div>
-                <div id="afterContent" class="content1">
-                    <h4 class="titleCourse">Khóa học nhập môn về Cấu trúc dữ liệu</h4>
-                    <div>
-                        <div class="box">
-                            <div class="img-container">
-                                <img src="https://aptechvietnam.com.vn/c/assets/img/Layer_15.png">
-                            </div>
-                            <div>
-                                <h6 class="text">Khoá học Cấu trúc dữ liệu</h6>
-                                <p class="text-justify">Được thiết kế bởi các Chuyên gia đến từ PTIT và được rất nhiều trường đại học sử dụng. Nội dung chương trình được tối ưu, lược bỏ những kiến thức không cần thiết, chỉ tập trung những kiến thức quan trọng để giúp người mới học Lập trình nắm bắt nhanh chóng nền tảng Lập trình.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="ads"></div>
             </div>
             <div id="footer">
                 <div id="beginfooter"></div>
@@ -100,16 +91,5 @@
                 </div>
             </div>
         </div>
-        <script>
-            function checkSQL() {
-                var username = document.getElementById("username").value;
-                var password = document.getElementById("password").value;
-                var s = username + "|" + password;
-                if (s.includes("select") || s.includes("union") || s.includes("\'") || s.includes("\"") || s.includes("insert")) {
-                    alert("Username or password invalid");
-                    return false;
-                }
-            }
-        </script>
     </body>
 </html>
