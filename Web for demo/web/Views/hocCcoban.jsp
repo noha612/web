@@ -37,9 +37,40 @@
                                         </form>-->
                 </div>
             </div>
-            <div id="body"  style="height: 1400px">
-                <div id="menu">a</div>
-                <div id="content">b</div>
+            <div id="body"  style="height: 1400px;">
+                <div id="menu">
+                    <div id="menu-name"><h3 style="text-align: center;">Học C cơ bản</h3></div>
+                    <div id="list">
+                        <ul>
+                            <li><a class="active" href="#home">Giới thiệu chung</a></li>
+                            <li><a href="#news">Tổng quan</a></li>
+                            <li><a href="#contact">Cấu trúc</a></li>
+                            <li><a href="#about">Cú pháp</a></li>
+                            <li><a href="#about">Kiểu dữ liệu</a></li>
+                            <li><a href="#about">Biến</a></li>
+                            <li><a href="#about">Hằng số</a></li>
+                            <li><a href="#about">Toán tử</a></li>
+                            <li><a href="#about">Cấu trúc lệnh rẽ nhánh</a></li>
+                            <li><a href="#about">Vòng lặp</a></li>
+                            <li><a href="#about">Hàm</a></li>
+                            <li><a href="#about">Mảng</a></li>
+                            <li><a href="#about">Con trỏ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="content">
+                    <div class="back-next">
+                        <button class="button-back-next">Bài trước</button>
+                        <button class="button-back-next" style="float: right">Bài tiếp theo</button>
+                    </div>
+                    <div id="main-content"></div>
+                    <div id="code-editor"></div>
+                    <div class="back-next">
+                        <button class="button-back-next">Bài trước</button>
+                        <button class="button-back-next" style="float: right">Bài tiếp theo</button>
+                    </div>
+                </div>
+                <div id="ads"></div>
             </div>
             <div id="footer">
                 <div id="beginfooter"></div>
