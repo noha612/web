@@ -18,7 +18,7 @@
             <input id="password" type="password" name="password" style="margin-left:31px">
             <br>
             <br>
-            <label>Ho ten</label>
+            <label>Họ và tên</label>
             <input id="hoten" type="text" name="hoten" style="margin-left:49px">
             <br>
             <br>
