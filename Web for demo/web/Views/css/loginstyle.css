@@ -20,14 +20,6 @@
     float: left;
     background-color: #CAFF70;
 }
-#contact{
-    width: 70%;
-    height: 100%;
-    float: left;
-    font-size: 13px;
-    font-family:monospace;
-    color: white;
-}
 .img-container{
     margin: 0 auto;
     height: 80px;
