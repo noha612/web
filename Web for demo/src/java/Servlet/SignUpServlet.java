@@ -19,13 +19,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author nguyenthang
  */
-public class LoginServlet extends HttpServlet {
+public class SignUpServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +43,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
+            out.println("<title>Servlet SignUpServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SignUpServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -80,21 +79,24 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
+            String name = request.getParameter("username");
+            String pass = request.getParameter("password");
+            String hoten = request.getParameter("hoten");
+            String email = request.getParameter("email");
+            String sdt = request.getParameter("sdt");
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            byte[] hash = digest.digest(pass.getBytes(StandardCharsets.UTF_8));
             String encoded = Base64.getEncoder().encodeToString(hash);
-            AccountDAO accountDAO = new AccountDAO();
-            if (accountDAO.checkAccount(new Account(username, encoded))) {
-                response.sendRedirect("mainpage.jsp");
-            } else {
+            Account a = new Account(name, encoded, hoten, email, sdt);
+            AccountDAO dao = new AccountDAO();
+            if (!dao.checkUsername(name)) {
+                dao.insertAccount(a);
                 response.sendRedirect("login.jsp");
+            } else {
+                response.sendRedirect("signUp.jsp");
             }
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

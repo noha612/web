@@ -1,0 +1,39 @@
+#profile{
+    width: 30%;
+    height: 100%;
+    background-color: #458B74;
+}
+.img-container{
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    flex-basis:25%;
+    padding:20px!important;
+    text-align:center;
+    margin-top: 2%;
+}
+
+.text-justify{
+    font-size: 15px;
+    text-align: justify!important;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+.text{
+    font-family: svn-gilroy-bold!important;
+    text-align: center!important;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}

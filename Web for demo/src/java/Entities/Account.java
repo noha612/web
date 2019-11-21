@@ -15,6 +15,32 @@ public class Account {
     private String hoten;
     private String email;
     private String sdt;
+    private String avatar;
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Account(String username, String password, String hoten, String email, String sdt, String avatar) {
+        this.username = username;
+        this.password = password;
+        this.hoten = hoten;
+        this.email = email;
+        this.sdt = sdt;
+        this.avatar = avatar;
+    }
+
+    public Account(String username, String password, String hoten, String email, String sdt) {
+        this.username = username;
+        this.password = password;
+        this.hoten = hoten;
+        this.email = email;
+        this.sdt = sdt;
+    }
 
     public Account(String username, String password) {
         this.username = username;

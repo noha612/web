@@ -26,3 +26,4 @@ hs_err_pid*
 /Web for demo/build/
 *.xml
 *.xml~
+*.xml
