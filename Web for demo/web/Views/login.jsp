@@ -15,7 +15,7 @@
                 <div id="headerEmp2">
                     <br>
                     <br>
-                    <form action="LoginServlet" method="POST" style="margin-left:37%; margin-top: 5px;">
+                    <form action="login" method="POST" style="margin-left:37%; margin-top: 5px;">
                         <label>Tài khoản</label>
                         <input id="username" type="text" name="username" style="margin-left: 22px">
                         <br>
@@ -26,7 +26,7 @@
                         <br>
                         <input class="button" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
                         <br>
-                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="">Đăng ký ngay</a></span>
+                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="signUp.jsp">Đăng ký ngay</a></span>
                     </form>
                 </div>
             </div>

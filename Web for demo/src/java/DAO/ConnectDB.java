@@ -35,7 +35,7 @@ public class ConnectDB {
             }
         }
         if (connect == null) {
-            String url = "jdbc:mysql://localhost:3306/web";
+            String url = "jdbc:mysql://localhost:3306/btlweb";
             try {
                 connect = DriverManager.getConnection(url, "root", "123123a@");
             } catch (SQLException e) {

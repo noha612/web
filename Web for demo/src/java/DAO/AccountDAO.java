@@ -39,8 +39,7 @@ public class AccountDAO {
         }
         return false;
     }
-
-    public boolean checkUsername(String username) {
+  public boolean checkUsername(String username) {
         try {
             String sql = "select * from account where username = ?";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -55,6 +54,24 @@ public class AccountDAO {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    public Account getAccByUsername(String username) {
+        try {
+            String sql = "select * from account where username = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Account a=new Account(username, rs.getString("password"), rs.getString("hoten"), rs.getString("email"), rs.getString("sodienthoai"),rs.getString("avatar"));
+                return a;
+            } else {
+                return null;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     public void insertAccount(Account a) {
