@@ -51,6 +51,8 @@
     box-sizing: border-box;
 }
 .titleCourse{
+    width: 100%;
+    height: 10%;
     color: black;
     font-family: svn-gilroy-bold!important;
     text-transform: uppercase!important;

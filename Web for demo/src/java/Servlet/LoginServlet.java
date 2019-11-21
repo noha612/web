@@ -5,8 +5,8 @@
  */
 package Servlet;
 
-import DAO.AccountDAO;
-import Entities.Account;
+import DAO.TaiKhoanDAOImpl;
+import Entities.TaiKhoan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -85,8 +85,8 @@ public class LoginServlet extends HttpServlet {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
             String encoded = Base64.getEncoder().encodeToString(hash);
-            AccountDAO accountDAO = new AccountDAO();
-            if (accountDAO.checkAccount(new Account(username, encoded))) {
+            TaiKhoanDAOImpl accountDAO = new TaiKhoanDAOImpl();
+            if (accountDAO.checkAccount(new TaiKhoan(username, encoded))) {
                 response.sendRedirect("mainpage.jsp");
             } else {
                 response.sendRedirect("login.jsp");

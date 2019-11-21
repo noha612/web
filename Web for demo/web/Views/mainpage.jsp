@@ -1,9 +1,10 @@
 
+<%@page import="DAO.TaiKhoanDAOImpl"%>
 <%@page import="java.util.List"%>
 <%@page import="Entities.KhoaHoc"%>
 <%@page import="DAO.KhoaHocDAO"%>
-<%@page import="Entities.Account"%>
-<%@page import="DAO.AccountDAO"%>
+<%@page import="Entities.TaiKhoan"%>
+<%@page import="DAO.TaiKhoanDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,10 +18,10 @@
         <div id="all">
             <div id="header"></div>
             <div id="profile">
-                <% AccountDAO accountDAO = new AccountDAO();
+                <% TaiKhoanDAOImpl taiKhoanDAOImpl = new TaiKhoanDAOImpl();
                     KhoaHocDAO khoaHocDAO = new KhoaHocDAO();
                     List<KhoaHoc> list = khoaHocDAO.getAll();
-                    Account a = accountDAO.getAccByUsername(session.getAttribute("username").toString());
+                    TaiKhoan a = taiKhoanDAOImpl.getAccByUsername(session.getAttribute("username").toString());
                     if (a != null) {%>
                 <br>
                 <br>
@@ -48,7 +49,7 @@
             <div id="khoahoc">
                 <% for(KhoaHoc kh:list){ %>
                 <div id="khoa">
-                    <h4 class="titleCourse"><%= kh.getTen()%></h4>
+                    <div class="titleCourse"><%= kh.getTen()%></div>
                     <div>
                         <div class="box">
                             <div class="img-container">
@@ -56,7 +57,7 @@
                             </div>
                             <div>
                                 <p class="text-justify">
-                                    <%= kh.getMota() %>
+                                    <%= kh.getMoTa() %>
                                 </p>
                             </div>
                         </div>

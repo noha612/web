@@ -9,7 +9,7 @@ package Entities;
  *
  * @author nguyenthang
  */
-public class Account {
+public class TaiKhoan {
     private String username;
     private String password;
     private String hoten;
@@ -25,7 +25,7 @@ public class Account {
         this.avatar = avatar;
     }
 
-    public Account(String username, String password, String hoten, String email, String sdt, String avatar) {
+    public TaiKhoan(String username, String password, String hoten, String email, String sdt, String avatar) {
         this.username = username;
         this.password = password;
         this.hoten = hoten;
@@ -34,7 +34,7 @@ public class Account {
         this.avatar = avatar;
     }
 
-    public Account(String username, String password, String hoten, String email, String sdt) {
+    public TaiKhoan(String username, String password, String hoten, String email, String sdt) {
         this.username = username;
         this.password = password;
         this.hoten = hoten;
@@ -42,7 +42,7 @@ public class Account {
         this.sdt = sdt;
     }
 
-    public Account(String username, String password) {
+    public TaiKhoan(String username, String password) {
         this.username = username;
         this.password = password;
     }

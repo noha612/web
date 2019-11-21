@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package databaseconfig;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,9 +35,9 @@ public class ConnectDB {
             }
         }
         if (connect == null) {
-            String url = "jdbc:mysql://localhost:3306/btlweb";
+            String url = "jdbc:mysql://localhost:3306/web";
             try {
-                connect = DriverManager.getConnection(url, "root", "123123a@");
+                connect = DriverManager.getConnection(url, "root", "123456");
             } catch (SQLException e) {
                 try {
                     throw new Exception(e.getMessage() + "Connect failed to database ....");
@@ -49,5 +49,7 @@ public class ConnectDB {
         return connect;
     }
 
-
+    public static void main(String[] args){
+        System.out.println(ConnectDB.openConnect());
+    }
 }

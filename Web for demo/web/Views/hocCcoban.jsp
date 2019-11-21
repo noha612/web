@@ -4,6 +4,13 @@
     Author     : ABC
 --%>
 
+<%@page import="DAO.NoiDungDAOImpl"%>
+<%@page import="Entities.NoiDung"%>
+<%@page import="DAO.PhanDAOImpl"%>
+<%@page import="Entities.Phan"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.BaiHocDAOImpl"%>
+<%@page import="Entities.BaiHoc"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +20,32 @@
         <title>Học C cơ bản</title>
         <link rel="stylesheet" href="css/hocCcobanstyle.css">
         <link rel="stylesheet" href="css/basestyle.css">
+        <link rel="stylesheet" href="css/editorstyle.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <% String ma = request.getParameter("ma");
+            List<BaiHoc> baiHocs = new BaiHocDAOImpl().findByMaKhoaHoc("KH01");
+            BaiHoc baiHoc = new BaiHoc();
+            if (ma == null) {
+                ma = "LC01";
+            }
+            String back = "";
+            String next = "";
+            baiHoc = new BaiHocDAOImpl().find(ma);
+            for (int i = 0; i < baiHocs.size(); i++) {
+                if (baiHocs.get(i).getMa().equals(ma)) {
+                    if (i == 0) {
+                        back = baiHocs.get(i).getMa();
+                        next = baiHocs.get(i + 1).getMa();
+                    } else if (i == baiHocs.size() - 1) {
+                        back = baiHocs.get(i - 1).getMa();
+                        next = baiHocs.get(i).getMa();
+                    } else {
+                        back = baiHocs.get(i - 1).getMa();
+                        next = baiHocs.get(i + 1).getMa();
+                    }
+                }
+            }
+        %>
     </head>
     <body>
         <div id="all">
@@ -37,44 +70,69 @@
                                         </form>-->
                 </div>
             </div>
-            <div id="body"  style="height: 1400px;">
+            <div id="body"  style="height: 2000px;">
                 <div id="menu">
-                    <div id="menu-name"><h3 style="text-align: center;">Học C cơ bản</h3></div>
+                    <div id="menu-name"><h2 style="text-align: center;">Học C cơ bản</h2></div>
                     <div id="list">
                         <ul>
-                            <li><a class="active" href="#home">Giới thiệu chung</a></li>
-                            <li><a href="#news">Tổng quan</a></li>
-                            <li><a href="#contact">Cấu trúc</a></li>
-                            <li><a href="#about">Cú pháp</a></li>
-                            <li><a href="#about">Kiểu dữ liệu</a></li>
-                            <li><a href="#about">Biến</a></li>
-                            <li><a href="#about">Hằng số</a></li>
-                            <li><a href="#about">Toán tử</a></li>
-                            <li><a href="#about">Cấu trúc lệnh rẽ nhánh</a></li>
-                            <li><a href="#about">Vòng lặp</a></li>
-                            <li><a href="#about">Hàm</a></li>
-                            <li><a href="#about">Mảng</a></li>
-                            <li><a href="#about">Con trỏ</a></li>
+                            <% for (BaiHoc i : baiHocs) {%>
+                            <li><a href="<%= "hocCcoban.jsp?ma=" + i.getMa()%>"><%= i.getTen()%></a></li>                                
+                                <% }%>
                         </ul>
                     </div>
                 </div>
                 <div id="content">
                     <div class="back-next">
-                        <button class="button-back-next">Bài trước</button>
-                        <button class="button-back-next" style="float: right">Bài tiếp theo</button>
+                        <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + back%>"><button class="button-back-next">Bài trước</button></a></div>
+                        <div style="width: 66%;float: left;"><h2 style="margin-left: 10%"><%= "Lập trình C cơ bản - " + baiHoc.getTen()%></h2></div>
+                        <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + next%>"><button class="button-back-next" style="float: right">Bài tiếp theo</button></a></div>
                     </div>
-                    <div id="main-content"></div>
-                    <div id="code-editor"></div>
+                    <div id="main-content">
+                        <% List<Phan> phans = new PhanDAOImpl().findByMaBaiHoc(ma);
+                            for (Phan i : phans) {%>
+                        <h3><%= i.getTen()%></h3>
+                        <% List<NoiDung> noiDungs = new NoiDungDAOImpl().findByMaPhan(i.getMa());
+                            for (NoiDung j : noiDungs) {
+                                if (j.getLoai().equals("img")) {
+                                    String imgUrl = "/Web/Views/img?url=" + j.getNoiDung();%>
+                        <img src="<%= imgUrl%>">
+                        <% } else if (j.getLoai().equals("text")) {%>
+                        <%= j.getNoiDung()%>
+                        <% }
+                                }
+                            }%>
+                    </div>
+                    <div id="code-editor">
+                        <h2>Online Code C Editor</h2>
+                        <textarea id="input" onkeydown="insertTab(this, event);">#include <stdio.h>
+int main()
+{
+   //do your code here
+   return 0;
+}</textarea>
+                        <textarea id="question" readonly=""></textarea>
+                        <br>
+                        <br>
+                        <button id="run" onclick="">Run >></button>
+                        <br>
+                        <br>
+                        <textarea id="output" readonly=""></textarea>
+                    </div>
                     <div class="back-next">
-                        <button class="button-back-next">Bài trước</button>
-                        <button class="button-back-next" style="float: right">Bài tiếp theo</button>
+                        <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + back%>"><button class="button-back-next">Bài trước</button></a></div>
+                        <div style="width: 66%;float: left;"><h2 style="margin-left: 27%"><%= "C cơ bản - " + baiHoc.getTen()%></h2></div>
+                        <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + next%>"><button class="button-back-next" style="float: right">Bài tiếp theo</button></a></div>
                     </div>
+                    <div id="ads-hoz"></div>
                 </div>
-                <div id="ads"></div>
+                <div id="ads-ver"></div>
             </div>
             <div id="footer">
                 <div id="beginfooter"></div>
                 <div id="contact">
+                    <br>
+                    <br>
+                    <br>
                     <br>
                     <br>
                     Contact Us:
@@ -91,5 +149,6 @@
                 </div>
             </div>
         </div>
+        <script src="script/executecode.js"></script>
     </body>
 </html>

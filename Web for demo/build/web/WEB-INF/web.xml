@@ -9,6 +9,8 @@
         <servlet-class>Servlet.ImageServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CodeExecuteServlet</servlet-name>
+        <servlet-class>Servlet.CodeExecuteServlet</servlet-class>
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>Servlet.SignUpServlet</servlet-class>
     </servlet>
@@ -21,6 +23,8 @@
         <url-pattern>/Views/img</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CodeExecuteServlet</servlet-name>
+        <url-pattern>/run-code</url-pattern>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/Views/signup</url-pattern>
     </servlet-mapping>
