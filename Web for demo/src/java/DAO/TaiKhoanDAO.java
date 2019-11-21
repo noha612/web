@@ -5,12 +5,12 @@
  */
 package DAO;
 
-import Entities.NhiemVuCuoiBai;
+import Entities.TaiKhoan;
 
 /**
  *
  * @author ABC
  */
-public interface NhiemVuCuoiBaiDAO extends BaseDAO<NhiemVuCuoiBai>{
+public interface TaiKhoanDAO extends BaseDAO<TaiKhoan>{
     
 }

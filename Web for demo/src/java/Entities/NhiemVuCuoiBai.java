@@ -6,38 +6,18 @@
 package Entities;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 /**
  *
  * @author ABC
  */
-@Entity
-@Table(name = "nhiem_vu_cuoi_bai", catalog = "web", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "NhiemVuCuoiBai.findAll", query = "SELECT n FROM NhiemVuCuoiBai n")})
 public class NhiemVuCuoiBai implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
     protected NhiemVuCuoiBaiPK nhiemVuCuoiBaiPK;
-    @Column(name = "Loai")
     private String loai;
-    @JoinColumn(name = "Ma_Bai_Hoc", referencedColumnName = "Ma", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
     private BaiHoc baiHoc;
-    @JoinColumn(name = "Ma_Bai_Tap", referencedColumnName = "Ma")
-    @ManyToOne
     private BaiTap maBaiTap;
-    @JoinColumn(name = "Ma_Cau_Hoi", referencedColumnName = "Ma")
-    @ManyToOne
     private CauHoiTracNghiem maCauHoi;
 
     public NhiemVuCuoiBai() {

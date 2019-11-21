@@ -7,45 +7,20 @@ package Entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
  *
  * @author ABC
  */
-@Entity
-@Table(name = "bai_hoc", catalog = "web", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "BaiHoc.findAll", query = "SELECT b FROM BaiHoc b")})
 public class BaiHoc implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Ma")
     private String ma;
-    @Lob
-    @Column(name = "Ten")
+
     private String ten;
-    @Column(name = "So_Thu_Tu")
     private Integer soThuTu;
-    @OneToMany(mappedBy = "maBaiHoc")
     private List<Phan> phanList;
-    @JoinColumn(name = "Ma_Khoa_Hoc", referencedColumnName = "Ma")
-    @ManyToOne
     private KhoaHoc maKhoaHoc;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "baiHoc")
     private List<NhiemVuCuoiBai> nhiemVuCuoiBaiList;
 
     public BaiHoc() {

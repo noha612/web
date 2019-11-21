@@ -7,43 +7,18 @@ package Entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
  *
  * @author ABC
  */
-@Entity
-@Table(name = "phan", catalog = "web", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "Phan.findAll", query = "SELECT p FROM Phan p")})
 public class Phan implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Ma")
     private String ma;
-    @Lob
-    @Column(name = "Ten")
     private String ten;
-    @Column(name = "So_Thu_Tu")
     private Integer soThuTu;
-    @JoinColumn(name = "Ma_Bai_Hoc", referencedColumnName = "Ma_Khoa_Hoc")
-    @ManyToOne
     private BaiHoc maBaiHoc;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "phan")
     private List<NoiDung> noiDungList;
 
     public Phan() {

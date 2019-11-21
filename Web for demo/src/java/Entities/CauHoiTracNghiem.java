@@ -7,49 +7,21 @@ package Entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
  *
  * @author ABC
  */
-@Entity
-@Table(name = "cau_hoi_trac_nghiem", catalog = "web", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "CauHoiTracNghiem.findAll", query = "SELECT c FROM CauHoiTracNghiem c")})
 public class CauHoiTracNghiem implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Ma")
     private String ma;
-    @Lob
-    @Column(name = "Cau_Hoi")
     private String cauHoi;
-    @Lob
-    @Column(name = "A")
     private String a;
-    @Lob
-    @Column(name = "B")
     private String b;
-    @Lob
-    @Column(name = "C")
     private String c;
-    @Lob
-    @Column(name = "D")
     private String d;
-    @Column(name = "Dap_An")
     private String dapAn;
-    @OneToMany(mappedBy = "maCauHoi")
     private List<NhiemVuCuoiBai> nhiemVuCuoiBaiList;
 
     public CauHoiTracNghiem() {

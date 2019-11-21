@@ -7,53 +7,22 @@ package Entities;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
  *
  * @author ABC
  */
-@Entity
-@Table(name = "bai_tap", catalog = "web", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "BaiTap.findAll", query = "SELECT b FROM BaiTap b")})
 public class BaiTap implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Ma")
     private String ma;
-    @Lob
-    @Column(name = "Ten")
     private String ten;
-    @Lob
-    @Column(name = "De_Bai")
     private String deBai;
-    @Lob
-    @Column(name = "Testcase_Vi_Du")
     private String testcaseViDu;
-    @Lob
-    @Column(name = "File_Input")
     private String fileInput;
-    @Lob
-    @Column(name = "File_Output")
     private String fileOutput;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "Gioi_Han_Thoi_Gian")
     private Float gioiHanThoiGian;
-    @Lob
-    @Column(name = "Url_Anh")
     private String urlAnh;
-    @OneToMany(mappedBy = "maBaiTap")
     private List<NhiemVuCuoiBai> nhiemVuCuoiBaiList;
 
     public BaiTap() {

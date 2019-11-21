@@ -6,41 +6,19 @@
 package Entities;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
 /**
  *
  * @author ABC
  */
-@Entity
-@Table(name = "noi_dung")
-@NamedQueries({
-    @NamedQuery(name = "NoiDung.findAll", query = "SELECT n FROM NoiDung n")})
 public class NoiDung implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Ma")
     private String ma;
-    @Column(name = "So_Thu_Tu")
     private Integer soThuTu;
-    @Column(name = "Loai")
     private String loai;
-    @Lob
-    @Column(name = "Noi_Dung")
     private String noiDung;
-    @Lob
-    @Column(name = "Mo_Ta")
     private String moTa;
-    @Column(name = "Ma_Phan")
     private String maPhan;
 
     public NoiDung() {

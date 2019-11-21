@@ -11,6 +11,8 @@
     <servlet>
         <servlet-name>CodeExecuteServlet</servlet-name>
         <servlet-class>Servlet.CodeExecuteServlet</servlet-class>
+        <servlet-name>SignUpServlet</servlet-name>
+        <servlet-class>Servlet.SignUpServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -23,6 +25,8 @@
     <servlet-mapping>
         <servlet-name>CodeExecuteServlet</servlet-name>
         <url-pattern>/run-code</url-pattern>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/Views/signup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

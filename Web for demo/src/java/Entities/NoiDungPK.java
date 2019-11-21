@@ -6,22 +6,13 @@
 package Entities;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 
 /**
  *
  * @author ABC
  */
-@Embeddable
 public class NoiDungPK implements Serializable {
-
-    @Basic(optional = false)
-    @Column(name = "Ma_Phan")
     private String maPhan;
-    @Basic(optional = false)
-    @Column(name = "So_Thu_Tu")
     private int soThuTu;
 
     public NoiDungPK() {
