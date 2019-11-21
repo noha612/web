@@ -32,6 +32,7 @@ public class KhoaHocDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 KhoaHoc kh=new KhoaHoc(rs.getString("ten"), rs.getString("Mo_Ta"), rs.getString("Url_Anh"));
+                kh.setUrl(rs.getString("url"));
                 list.add(kh);
             }
             System.out.println(list.size());

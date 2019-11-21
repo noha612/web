@@ -87,12 +87,17 @@ public class LoginServlet extends HttpServlet {
             String encoded = Base64.getEncoder().encodeToString(hash);
             TaiKhoanDAOImpl accountDAO = new TaiKhoanDAOImpl();
             if (accountDAO.checkAccount(new TaiKhoan(username, encoded))) {
+                TaiKhoan a = accountDAO.getAccByUsername(username);
+                HttpSession session = request.getSession();
+                session.setAttribute("username", a.getUsername());
+                session.setAttribute("avt", a.getAvatar());
+                session.setAttribute("email", a.getEmail());
+                session.setAttribute("sdt", a.getSdt());
+                session.setAttribute("hoten", a.getHoten());
                 response.sendRedirect("mainpage.jsp");
             } else {
                 response.sendRedirect("login.jsp");
             }
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

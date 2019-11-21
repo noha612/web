@@ -21,6 +21,16 @@ public class KhoaHoc implements Serializable {
     private Integer soThuTu;
     private String urlAnh;
     private List<BaiHoc> baiHocList;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    
 
     public KhoaHoc() {
     }
@@ -79,4 +89,10 @@ public class KhoaHoc implements Serializable {
         this.moTa = mota;
         this.urlAnh = url;
     }
+
+    @Override
+    public String toString() {
+        return "KhoaHoc{" + "ma=" + ma + ", ten=" + ten + ", moTa=" + moTa + ", soThuTu=" + soThuTu + ", urlAnh=" + urlAnh + ", baiHocList=" + baiHocList + ", url=" + url + '}';
+    }
+    
 }
