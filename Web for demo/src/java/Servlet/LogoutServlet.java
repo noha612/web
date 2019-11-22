@@ -5,26 +5,19 @@
  */
 package Servlet;
 
-import DAO.TaiKhoanDAOImpl;
-import Entities.TaiKhoan;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author nguyenthang
+ * @author Admin
  */
-public class SignUpServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +36,10 @@ public class SignUpServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SignUpServlet</title>");
+            out.println("<title>Servlet LogoutServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SignUpServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,7 +57,10 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+                HttpSession session = request.getSession();
+                session.removeAttribute("username");
+                session.removeAttribute("hoten");
+                response.sendRedirect("login.jsp");
     }
 
     /**
@@ -78,26 +74,7 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            String name = request.getParameter("username");
-            String pass = request.getParameter("password");
-            String hoten = request.getParameter("hoten");
-            String email = request.getParameter("email");
-            String sdt = request.getParameter("sdt");
-            MessageDigest digest = MessageDigest.getInstance("SHA-1");
-            byte[] hash = digest.digest(pass.getBytes(StandardCharsets.UTF_8));
-            String encoded = Base64.getEncoder().encodeToString(hash);
-            TaiKhoan a = new TaiKhoan(name, encoded, hoten, email, sdt);
-            TaiKhoanDAOImpl dao = new TaiKhoanDAOImpl();
-            if (!dao.checkUsername(name)) {
-                dao.insertAccount(a);
-                response.sendRedirect("login.jsp");
-            } else {
-                response.sendRedirect("signUp.jsp");
-            }
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

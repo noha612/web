@@ -1,0 +1,7 @@
+code.c: In function 'main':
+code.c:4:20: error: expected ';' before 'return'
+    printf("not ok")
+                    ^
+                    ;
+    return 0;
+    ~~~~~~           

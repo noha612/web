@@ -10,11 +10,23 @@
     <body>
         <div id="all" style="height: 700px;">
             <div id="header">
-                <div id="headerEmp1"></div>
+                <a href="login.jsp"><div id="headerEmp1">
+                    </div>
+                </a>
                 <div id="headerCenter"></div>
                 <div id="headerEmp2">
                     <br>
                     <br>
+                    <% if (session.getAttribute("username") != null) {%>
+                    <div id="header-menu">
+                        <br>
+                        <span style="font-size: 20px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                            <br>
+                            <a href="mainpage.jsp" style="color: brown">Trang cá nhân</a> |
+                            <a href="logout" style="color: brown">Đăng xuất</a></span>
+
+                    </div>
+                    <% } else { %>
                     <form action="login" method="POST" style="margin-left:37%; margin-top: 5px;">
                         <label>Tài khoản</label>
                         <input id="username" type="text" name="username" style="margin-left: 22px">
@@ -24,10 +36,14 @@
                         <input id="password" type="password" name="password" style="margin-left:25px">
                         <br>
                         <br>
-                        <input class="button" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
+                        <input class="button-header" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
                         <br>
-                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="signUp.jsp">Đăng ký ngay</a></span>
+                        <span style="font-size: 16px;">
+                            <% if ( request.getParameter("access")!=null) { %>
+                            <span style="color: red;">Thất bại</span>
+                            <% } %>Chưa có tài khoản?<a href="signUp.jsp">Đăng ký ngay</a></span>
                     </form>
+                    <%  }%>
                 </div>
             </div>
             <div id="body" style="height: 60%;">
@@ -103,16 +119,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            function checkSQL() {
-                var username = document.getElementById("username").value;
-                var password = document.getElementById("password").value;
-                var s = username + "|" + password;
-                if (s.includes("select") || s.includes("union") || s.includes("\'") || s.includes("\"") || s.includes("insert")) {
-                    alert("Username or password invalid");
-                    return false;
-                }
-            }
-        </script>
+        <script src="script/detectSQLinjection.js"></script>
     </body>
 </html>

@@ -94,9 +94,9 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("email", a.getEmail());
                 session.setAttribute("sdt", a.getSdt());
                 session.setAttribute("hoten", a.getHoten());
-                response.sendRedirect("mainpage.jsp");
-            } else {
                 response.sendRedirect("login.jsp");
+            } else {
+                response.sendRedirect("login.jsp?access=false");
             }
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);

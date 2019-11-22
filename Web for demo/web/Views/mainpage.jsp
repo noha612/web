@@ -16,7 +16,40 @@
     </head>
     <body>
         <div id="all">
-            <div id="header"></div>
+            <div id="header">
+                <a href="login.jsp"><div id="headerEmp1">
+                    </div>
+                </a>
+                <div id="headerCenter"></div>
+                <div id="headerEmp2">
+                    <br>
+                    <br>
+                    <% if (session.getAttribute("username") != null) {%>
+                    <div id="header-menu">
+                        <br>
+                        <span style="font-size: 20px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                            <br>
+                            <a href="mainpage.jsp" style="color: brown">Trang cá nhân</a> |
+                            <a href="logout" style="color: brown">Đăng xuất</a></span>
+
+                    </div>
+                    <% } else { %>
+                    <form action="login" method="POST" style="margin-left:37%; margin-top: 5px;">
+                        <label>Tài khoản</label>
+                        <input id="username" type="text" name="username" style="margin-left: 22px">
+                        <br>
+                        <br>
+                        <label>Mật khẩu</label>
+                        <input id="password" type="password" name="password" style="margin-left:25px">
+                        <br>
+                        <br>
+                        <input class="button-header" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
+                        <br>
+                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="signUp.jsp">Đăng ký ngay</a></span>
+                    </form>
+                    <%  }%>
+                </div>
+            </div>
             <div id="profile">
                 <% TaiKhoanDAOImpl taiKhoanDAOImpl = new TaiKhoanDAOImpl();
                     KhoaHocDAO khoaHocDAO = new KhoaHocDAO();
@@ -100,5 +133,6 @@
                 </div>
             </div>
         </div>
+        <script src="script/detectSQLinjection.js"></script>
     </body>
 </html>

@@ -27,7 +27,7 @@ public class ExecuteCodeService {
         s = new String(byteArray);
         System.out.println(s);
         try {
-            FileWriter fw = new FileWriter("C:\\Users\\ABC\\Desktop\\cert\\web\\code.c");
+            FileWriter fw = new FileWriter("C:\\Users\\Admin\\Desktop\\cert\\web\\code.c");
             fw.write(s);
             fw.close();
         } catch (Exception e) {
@@ -35,7 +35,7 @@ public class ExecuteCodeService {
         }
 
         ProcessBuilder builder = new ProcessBuilder(
-                "cmd.exe", "/c", "gcc C:\\Users\\ABC\\Desktop\\cert\\web\\code.c -o C:\\Users\\ABC\\Desktop\\cert\\web\\run.exe && C:\\Users\\ABC\\Desktop\\cert\\web\\run.exe > C:\\Users\\ABC\\Desktop\\cert\\web\\log ");
+                "cmd.exe", "/c", "gcc C:\\Users\\Admin\\Desktop\\cert\\web\\code.c 2> C:\\Users\\Admin\\Desktop\\cert\\web\\log -o C:\\Users\\Admin\\Desktop\\cert\\web\\run.exe && C:\\Users\\Admin\\Desktop\\cert\\web\\run.exe > C:\\Users\\Admin\\Desktop\\cert\\web\\log ");
         builder.redirectErrorStream(true);
         Process p = builder.start();
         BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -53,7 +53,7 @@ public class ExecuteCodeService {
 
     private String readFile() {
         StringBuilder s = new StringBuilder();
-        String fileName = "C:\\Users\\ABC\\Desktop\\cert\\web\\log";
+        String fileName = "C:\\Users\\Admin\\Desktop\\cert\\web\\log";
         String line = null;
 
         try {
@@ -75,6 +75,6 @@ public class ExecuteCodeService {
                     "Error reading file '"
                     + fileName + "'");
         }
-        return s.toString();
+        return s.toString().trim();
     }
 }

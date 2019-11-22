@@ -11,8 +11,14 @@
     <servlet>
         <servlet-name>CodeExecuteServlet</servlet-name>
         <servlet-class>Servlet.CodeExecuteServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>Servlet.SignUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>Servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -25,8 +31,14 @@
     <servlet-mapping>
         <servlet-name>CodeExecuteServlet</servlet-name>
         <url-pattern>/run-code</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/Views/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/Views/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
